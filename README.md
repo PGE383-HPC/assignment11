@@ -1,6 +1,6 @@
 # Assignment 11
 
-![Assignment 11](https://github.com/PGE383-HPC/assignment11-solution/actions/workflows/main.yml/badge.svg)
+![Assignment 11](https://github.com/PGE383-HPC/assignment11/actions/workflows/main.yml/badge.svg)
 
 A simple "tank" model for gas flow from a well controlled by pressure is
 

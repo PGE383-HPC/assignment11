@@ -68,24 +68,6 @@ function z(P, params)
     D * Ppr * (1 + y + y ^ 2 - y ^ 3) / (D * Ppr + E * y ^ 2 - F * y ^ G) / (1 - y) ^ 3
 end
 
-function z′(P, params)
-    ForwardDiff.derivative(x -> z(x, params), P)
-end
-
-function Q(P, params)
-    J, Pwf, n = params
-    J * (P ^ 2 - Pwf ^ 2) ^ n
-end
-
-function conservation_of_mass(dP, P, params)
-    Vp, Psc, Tsc, Pwf, n, J, T, ρ = params
-    Vp * Tsc / Psc / T * dP * (z(P, [ρ, T]) - P * z′(P, [ρ, T])) / z(P, [ρ, T]) ^ 2 + Q(P, [J, Pwf, n]) 
-end
-
-
-function residual_eqns(res, dP, P, params, t)
-    res[1] = conservation_of_mass(dP[1], P[1], params)
-end
 
 function gas_solver(Pₒ, Vₚ, Pₛ, Tₛ, Pwf,  n, J, T, ρ, tmax)
 
